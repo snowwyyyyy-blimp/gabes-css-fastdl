@@ -12,11 +12,16 @@ sv_downloadurl "https://gabes-css-fastdl.pages.dev/cstrike"
 
 | File | Purpose |
 |---|---|
-| `cstrike/sound/gabesmusic/roundmusic.mp3` | Round-start track (3s countdown + music, 90.65s) |
-| `cstrike/sound/gabesmusic/roundmusic_loop.mp3` | Same track from 4s in, used if the round outlives the music |
+| `cstrike/sound/gabesmusic/countdown.wav` | 3 second countdown (0:00-0:03 of the track) |
+| `cstrike/sound/gabesmusic/music.wav` | The music (0:03 to end, 87.6s) |
 
-Both are 44.1 kHz / 192 kbps CBR, which is what Source's sound mixer accepts.
-48 kHz files fail on the client with `Invalid sample rate (0)`.
+Both are 44.1 kHz mono PCM WAV. WAV on purpose:
+
+- Source only accepts 11025/22050/44100 Hz - a 48 kHz file fails on the
+  client with `Invalid sample rate (0)`.
+- MP3 sounds are streamed with "no sound cache", which eats the first seconds
+  of the file. That is why the countdown never played. WAV is cached, so it
+  starts instantly.
 
 ## Adding more custom content
 
