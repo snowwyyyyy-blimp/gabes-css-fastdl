@@ -1,19 +1,22 @@
 # gabes-css-fastdl
 
-FastDL content for the **Gabes little deathmatch!** CS:S server.
+FastDL content for the **Gabes little deathmatch!** CS:S server (Cloudflare Pages).
 
-Served by GitHub Pages, used via `sv_downloadurl`:
+Used by the server via:
 
 ```
-sv_downloadurl "https://snowwyyyyy-blimp.github.io/gabes-css-fastdl/cstrike"
+sv_downloadurl "https://gabes-css-fastdl.pages.dev/cstrike"
 ```
 
 ## Contents
 
 | File | Purpose |
 |---|---|
-| `cstrike/sound/gabesmusic/jingle.mp3` | Round-start track (3s countdown + music, 90.67s) |
-| `cstrike/sound/gabesmusic/jingle_loop.mp3` | Same track starting at 4s, used if the round outlives the music |
+| `cstrike/sound/gabesmusic/roundmusic.mp3` | Round-start track (3s countdown + music, 90.65s) |
+| `cstrike/sound/gabesmusic/roundmusic_loop.mp3` | Same track from 4s in, used if the round outlives the music |
+
+Both are 44.1 kHz / 192 kbps CBR, which is what Source's sound mixer accepts.
+48 kHz files fail on the client with `Invalid sample rate (0)`.
 
 ## Adding more custom content
 
